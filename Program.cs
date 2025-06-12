@@ -73,8 +73,13 @@ builder.Services.AddAntiforgery(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    // Para produção - mostra página de erro customizada
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
