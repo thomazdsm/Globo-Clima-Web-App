@@ -1,0 +1,81 @@
+﻿@model GloboClima.WebApp.Models.RegisterRequest
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-header text-center py-4" style="background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%); color: white;">
+                <div class="mb-2" style="font-size: 2.5rem;">🌍</div>
+                <h3 class="mb-0" style="font-weight: 600;">Criar Conta</h3>
+                <p class="mb-0 mt-2" style="opacity: 0.9;">Junte-se ao GloboClima gratuitamente</p>
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="Register" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="FirstName" class="form-label">
+                                <span style="margin-right: 0.25rem;">👤</span>Nome
+                            </label>
+                            <input asp-for="FirstName" class="form-control" placeholder="Seu nome" />
+                            <span asp-validation-for="FirstName" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="LastName" class="form-label">
+                                <span style="margin-right: 0.25rem;">👤</span>Sobrenome
+                            </label>
+                            <input asp-for="LastName" class="form-control" placeholder="Seu sobrenome" />
+                            <span asp-validation-for="LastName" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">
+                            <span style="margin-right: 0.25rem;">📧</span>Email
+                        </label>
+                        <input asp-for="Email" class="form-control" type="email" placeholder="seu@email.com" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">
+                            <span style="margin-right: 0.25rem;">🔒</span>Senha
+                        </label>
+                        <input asp-for="Password" class="form-control" type="password" placeholder="Mínimo 8 caracteres" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="ConfirmPassword" class="form-label">
+                            <span style="margin-right: 0.25rem;">🔒</span>Confirmar Senha
+                        </label>
+                        <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="Digite a senha novamente" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <span style="margin-right: 0.5rem;">🚀</span>Criar Conta
+                        </button>
+                    </div>
+                </form>
+
+                <div class="text-center">
+                    <p class="text-muted mb-0">
+                        Já tem uma conta?
+                        <a asp-action="Login" class="text-decoration-none fw-medium">
+                            <span style="margin-right: 0.25rem;">🔑</span>Faça login
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

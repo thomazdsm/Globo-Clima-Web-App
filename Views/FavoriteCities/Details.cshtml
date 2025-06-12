@@ -1,0 +1,266 @@
+﻿@model GloboClima.WebApp.Models.FavoriteCityViewModel
+@{
+    ViewData["Title"] = $"Detalhes - {Model.FavoriteCity.CityName}";
+}
+
+<!-- Breadcrumb -->
+<div class="row mb-4">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a asp-controller="Dashboard" asp-action="Index">
+                        <span style="margin-right: 0.25rem;">🏠</span>Dashboard
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a asp-controller="FavoriteCities" asp-action="Index">
+                        <span style="margin-right: 0.25rem;">⭐</span>Cidades Favoritas
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.FavoriteCity.CityName</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Header -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h1 class="mb-2">
+                    @if (Model.Country?.Flag != null)
+                    {
+                        <span class="me-3" style="font-size: 2.5rem;">
+                            <img src="@Model.Country.Flag" style="100px" />
+                        </span>
+                    }
+                    @Model.FavoriteCity.CityName, @Model.FavoriteCity.CountryCode
+                </h1>
+                <p class="lead mb-0 text-muted">Informações detalhadas do clima e localização</p>
+            </div>
+            <div class="d-flex gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <span style="margin-right: 0.5rem;">←</span>Voltar
+                </a>
+                <form asp-action="RemoveFavorite" method="post" class="d-inline" 
+                      onsubmit="return confirm('Tem certeza que deseja remover esta cidade dos favoritos?')">
+                    <input type="hidden" name="locationId" value="@Model.FavoriteCity.LocationId" />
+                    <button type="submit" class="btn btn-outline-danger">
+                        <span style="margin-right: 0.5rem;">🗑️</span>Remover dos Favoritos
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Weather != null)
+{
+    <!-- Informações do Clima -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">
+                            <span style="margin-right: 0.5rem;">🌤️</span>Condições Climáticas Atuais
+                        </h5>
+                        <small class="text-muted">
+                            <span style="margin-right: 0.25rem;">🕒</span>Atualizado em: @Model.Weather.DateTime.ToString("dd/MM/yyyy HH:mm")
+                        </small>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="text-center p-4 rounded" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+                                <div class="mb-3">
+                                    @if (!string.IsNullOrEmpty(Model.Weather.Icon))
+                                    {
+                                        <img src="@(Model.Weather.Icon)"
+                                             alt="@Model.Weather.Description" style="width: 100px; height: 100px;">
+                                    }
+                                    else
+                                    {
+                                        <div style="font-size: 5rem;">🌤️</div>
+                                    }
+                                </div>
+                                <h2 class="text-primary mb-2" style="font-weight: 700;">@Math.Round(Model.Weather.Temperature, 1)°C</h2>
+                                <p class="mb-1 fw-medium">@Model.Weather.Description</p>
+                                <small class="text-muted">Sensação térmica: @Math.Round(Model.Weather.FeelsLike, 1)°C</small>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="card border-0" style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);">
+                                        <div class="card-body text-center">
+                                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">💧</div>
+                                            <h6 class="card-title">Umidade</h6>
+                                            <h4 class="text-success mb-0">@Model.Weather.Humidity%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card border-0" style="background: linear-gradient(135deg, #fff3e0 0%, #ffcc80 100%);">
+                                        <div class="card-body text-center">
+                                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌪️</div>
+                                            <h6 class="card-title">Velocidade do Vento</h6>
+                                            <h4 class="text-warning mb-0">@Math.Round(Model.Weather.WindSpeed, 1) km/h</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card border-0" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);">
+                                        <div class="card-body text-center">
+                                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌡️</div>
+                                            <h6 class="card-title">Pressão Atmosférica</h6>
+                                            <h4 class="mb-0" style="color: #c2185b;">@Model.Weather.Pressure hPa</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card border-0" style="background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%);">
+                                        <div class="card-body text-center">
+                                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌍</div>
+                                            <h6 class="card-title">País</h6>
+                                            <h4 class="mb-0" style="color: #7b1fa2;">@Model.Weather.Country</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Country != null)
+{
+    <!-- Informações do País -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        <span style="margin-right: 0.5rem;">🏛️</span>Informações do País
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="p-3 rounded" style="background-color: var(--surface-variant);">
+                                        <strong class="text-primary">🏴 Nome:</strong><br>
+                                        <span class="fs-5">@Model.Country.Name</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-3 rounded" style="background-color: var(--surface-variant);">
+                                        <strong class="text-primary">🔤 Código:</strong><br>
+                                        <span class="fs-5">@Model.Country.Code</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-3 rounded" style="background-color: var(--surface-variant);">
+                                        <strong class="text-primary">🏙️ Capital:</strong><br>
+                                        <span class="fs-5">@Model.Country.Capital</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-3 rounded" style="background-color: var(--surface-variant);">
+                                        <strong class="text-primary">🌍 Região:</strong><br>
+                                        <span class="fs-5">@Model.Country.Region</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-4 rounded" style="background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);">
+                                @if (!string.IsNullOrEmpty(Model.Country.Flag))
+                                {
+                                    <div class="mb-3" style="font-size: 5rem;">
+                                        <img src="@Model.Country.Flag" style="height: 100px" />
+                                    </div>
+                                }
+                                @if (Model.Country.Coordinates != null && Model.Country.Coordinates.Length >= 2)
+                                {
+                                    <div class="text-muted">
+                                        <strong>📍 Coordenadas:</strong><br>
+                                        <small>Lat: @Model.Country.Coordinates[0]°</small><br>
+                                        <small>Lng: @Model.Country.Coordinates[1]°</small>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Informações da Cidade Favorita -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">
+                    <span style="margin-right: 0.5rem;">⭐</span>Informações dos Favoritos
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="p-3 rounded" style="background-color: var(--surface-variant);">
+                                    <strong class="text-primary">🆔 ID da Localização:</strong><br>
+                                    <code class="fs-6">@Model.FavoriteCity.LocationId</code>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="p-3 rounded" style="background-color: var(--surface-variant);">
+                                    <strong class="text-primary">📅 Adicionada em:</strong><br>
+                                    <span class="fs-6">@Model.FavoriteCity.CreatedAt.ToString("dd/MM/yyyy HH:mm:ss")</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-info btn-lg" onclick="refreshWeather()">
+                                <span id="refreshSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+                                <span style="margin-right: 0.5rem;">🔄</span>Atualizar Clima
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        async function refreshWeather() {
+            const spinner = document.getElementById('refreshSpinner');
+            spinner.classList.remove('d-none');
+            
+            try {
+                // Recarregar a página para obter dados atualizados
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            } catch (error) {
+                console.error('Erro ao atualizar:', error);
+                spinner.classList.add('d-none');
+            }
+        }
+    </script>
+}

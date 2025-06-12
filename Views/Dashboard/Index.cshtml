@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- Header do Dashboard -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h1 class="mb-2">
+                    <span style="margin-right: 0.5rem; font-size: 2.5rem;">🌍</span>Dashboard
+                </h1>
+                <p class="lead mb-1">Bem-vindo, <strong>@ViewBag.UserEmail</strong>!</p>
+                <small class="text-muted">Última atualização: @DateTime.Now.ToString("dd/MM/yyyy HH:mm")</small>
+            </div>
+            <div>
+                <a asp-controller="FavoriteCities" asp-action="Index" class="btn btn-primary">
+                    <span style="margin-right: 0.5rem;">⭐</span>Gerenciar Favoritos
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Como Usar o Site -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">
+                    <span style="margin-right: 0.5rem;">📚</span>Como Usar o GloboClima
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="text-center h-100 d-flex flex-column">
+                            <div class="mb-4" style="font-size: 4rem; line-height: 1;">1️⃣</div>
+                            <h6 class="mb-3" style="font-weight: 600;">Adicione Cidades</h6>
+                            <p class="text-muted small flex-grow-1">Vá para "Favoritos" e adicione suas cidades preferidas usando o código do país (ex: BR) e nome da cidade.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center h-100 d-flex flex-column">
+                            <div class="mb-4" style="font-size: 4rem; line-height: 1;">2️⃣</div>
+                            <h6 class="mb-3" style="font-weight: 600;">Monitore o Clima</h6>
+                            <p class="text-muted small flex-grow-1">Acompanhe temperatura, umidade, vento e outras informações climáticas em tempo real.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center h-100 d-flex flex-column">
+                            <div class="mb-4" style="font-size: 4rem; line-height: 1;">3️⃣</div>
+                            <h6 class="mb-3" style="font-weight: 600;">Visualize Detalhes</h6>
+                            <p class="text-muted small flex-grow-1">Clique em "Visualizar" para ver informações completas do clima e dados do país.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4 pt-3" style="border-top: 1px solid var(--outline-variant);">
+                    <a asp-controller="FavoriteCities" asp-action="Index" class="btn btn-outline-primary">
+                        <span style="margin-right: 0.5rem;">🚀</span>Começar Agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

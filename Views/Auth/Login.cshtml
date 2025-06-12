@@ -1,0 +1,65 @@
+﻿@model GloboClima.WebApp.Models.LoginRequest
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-header text-center py-4" style="background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%); color: white;">
+                <div class="mb-2" style="font-size: 2.5rem;">🌍</div>
+                <h3 class="mb-0" style="font-weight: 600;">Entrar</h3>
+                <p class="mb-0 mt-2" style="opacity: 0.9;">Acesse sua conta do GloboClima</p>
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="Login" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">
+                            <span style="margin-right: 0.25rem;">📧</span>Email
+                        </label>
+                        <input asp-for="Email" class="form-control" type="email" placeholder="seu@email.com" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">
+                            <span style="margin-right: 0.25rem;">🔒</span>Senha
+                        </label>
+                        <input asp-for="Password" class="form-control" type="password" placeholder="Digite sua senha" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="form-check">
+                            <input asp-for="RememberMe" class="form-check-input" type="checkbox" />
+                            <label asp-for="RememberMe" class="form-check-label">
+                                <span style="margin-right: 0.25rem;">💾</span>Lembrar de mim
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <span style="margin-right: 0.5rem;">🔑</span>Entrar
+                        </button>
+                    </div>
+                </form>
+
+                <div class="text-center">
+                    <p class="text-muted mb-0">
+                        Não tem uma conta?
+                        <a asp-action="Register" class="text-decoration-none fw-medium">
+                            <span style="margin-right: 0.25rem;">🚀</span>Cadastre-se
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

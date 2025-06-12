@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<!-- Hero Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="text-center py-5">
+            <div class="mb-4" style="font-size: 5rem; line-height: 1;">🌍</div>
+            <h1 class="display-4 mb-3" style="font-weight: 700;">Bem-vindo ao GloboClima!</h1>
+            <p class="lead mb-4" style="font-size: 1.25rem; color: var(--on-surface-variant);">
+                Sua plataforma completa para informações climáticas globais em tempo real.
+            </p>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a asp-controller="Auth" asp-action="Register" class="btn btn-primary btn-lg">
+                        <span style="margin-right: 0.5rem;">🚀</span>Começar Gratuitamente
+                    </a>
+                    <a asp-controller="Auth" asp-action="Login" class="btn btn-outline-primary btn-lg">
+                        <span style="margin-right: 0.5rem;">🔑</span>Fazer Login
+                    </a>
+                </div>
+            }
+            else
+            {
+                <a asp-controller="Dashboard" asp-action="Index" class="btn btn-primary btn-lg">
+                    <span style="margin-right: 0.5rem;">📊</span>Ir para Dashboard
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card h-100 border-0" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+            <div class="card-body text-center p-4">
+                <div class="mb-3" style="font-size: 3rem; line-height: 1;">🌡️</div>
+                <h5 class="card-title mb-3" style="font-weight: 600; color: var(--primary-800);">Temperatura Global</h5>
+                <p class="card-text" style="color: var(--primary-700);">
+                    Monitore as temperaturas em tempo real ao redor do mundo com precisão e confiabilidade.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0" style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);">
+            <div class="card-body text-center p-4">
+                <div class="mb-3" style="font-size: 3rem; line-height: 1;">🌧️</div>
+                <h5 class="card-title mb-3" style="font-weight: 600; color: #2e7d32;">Previsão do Tempo</h5>
+                <p class="card-text" style="color: #388e3c;">
+                    Obtenha previsões precisas e detalhadas para qualquer localização do planeta.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0" style="background: linear-gradient(135deg, #fff3e0 0%, #ffcc80 100%);">
+            <div class="card-body text-center p-4">
+                <div class="mb-3" style="font-size: 3rem; line-height: 1;">📊</div>
+                <h5 class="card-title mb-3" style="font-weight: 600; color: #ef6c00;">Análises Climáticas</h5>
+                <p class="card-text" style="color: #f57c00;">
+                    Acesse relatórios detalhados, tendências climáticas e dados históricos.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center py-5">
+                <h3 class="mb-4" style="font-weight: 600;">Por que escolher o GloboClima?</h3>
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="mb-2" style="font-size: 2.5rem; color: var(--primary-600);">⚡</div>
+                        <h4 style="font-weight: 700; color: var(--primary-700);">Tempo Real</h4>
+                        <p class="text-muted">Dados atualizados instantaneamente</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2" style="font-size: 2.5rem; color: var(--success);">🎯</div>
+                        <h4 style="font-weight: 700; color: var(--success);">Precisão</h4>
+                        <p class="text-muted">Informações confiáveis e precisas</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2" style="font-size: 2.5rem; color: var(--info);">🌐</div>
+                        <h4 style="font-weight: 700; color: var(--info);">Global</h4>
+                        <p class="text-muted">Cobertura mundial completa</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-2" style="font-size: 2.5rem; color: var(--warning);">📱</div>
+                        <h4 style="font-weight: 700; color: var(--warning);">Responsivo</h4>
+                        <p class="text-muted">Acesse de qualquer dispositivo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <!-- CTA Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card" style="background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%); color: white;">
+                <div class="card-body text-center py-5">
+                    <h3 class="mb-3" style="font-weight: 600;">Pronto para começar?</h3>
+                    <p class="mb-4" style="font-size: 1.1rem; opacity: 0.9;">
+                        Crie sua conta gratuita e tenha acesso a todas as funcionalidades do GloboClima.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a asp-controller="Auth" asp-action="Register" class="btn btn-light btn-lg">
+                            <span style="margin-right: 0.5rem;">🚀</span>Criar Conta Grátis
+                        </a>
+                        <a asp-controller="Auth" asp-action="Login" class="btn btn-outline-light btn-lg">
+                            <span style="margin-right: 0.5rem;">🔑</span>Já tenho conta
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
