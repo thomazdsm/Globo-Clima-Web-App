@@ -126,7 +126,7 @@ namespace GloboClima.WebApp.Services
                             return new AuthResponse
                             {
                                 Success = true,
-                                Message = "Operação realizada com sucesso"
+                                Message = "Operacao realizada com sucesso"
                             };
                         }
                     }
@@ -135,7 +135,7 @@ namespace GloboClima.WebApp.Services
                         return new AuthResponse
                         {
                             Success = true,
-                            Message = "Operação realizada com sucesso"
+                            Message = "Operacao realizada com sucesso"
                         };
                     }
                 }
@@ -168,9 +168,9 @@ namespace GloboClima.WebApp.Services
                 System.Net.HttpStatusCode.BadRequest => "Dados inválidos fornecidos",
                 System.Net.HttpStatusCode.Unauthorized => "Credenciais inválidas",
                 System.Net.HttpStatusCode.Forbidden => "Acesso negado",
-                System.Net.HttpStatusCode.NotFound => "Recurso não encontrado",
+                System.Net.HttpStatusCode.NotFound => "Recurso nao encontrado",
                 System.Net.HttpStatusCode.InternalServerError => "Erro interno do servidor",
-                _ => "Erro na comunicação com o servidor"
+                _ => "Erro na comunicacao com o servidor"
             };
         }
     }

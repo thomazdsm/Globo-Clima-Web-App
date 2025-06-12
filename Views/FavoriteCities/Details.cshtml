@@ -38,7 +38,7 @@
                     }
                     @Model.FavoriteCity.CityName, @Model.FavoriteCity.CountryCode
                 </h1>
-                <p class="lead mb-0 text-muted">Informações detalhadas do clima e localização</p>
+                <p class="lead mb-0 text-muted">Informacões detalhadas do clima e localizacao</p>
             </div>
             <div class="d-flex gap-2">
                 <a asp-action="Index" class="btn btn-outline-secondary">
@@ -58,14 +58,14 @@
 
 @if (Model.Weather != null)
 {
-    <!-- Informações do Clima -->
+    <!-- Informacões do Clima -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 class="card-title">
-                            <span style="margin-right: 0.5rem;">🌤️</span>Condições Climáticas Atuais
+                            <span style="margin-right: 0.5rem;">🌤️</span>Condicões Climáticas Atuais
                         </h5>
                         <small class="text-muted">
                             <span style="margin-right: 0.25rem;">🕒</span>Atualizado em: @Model.Weather.DateTime.ToString("dd/MM/yyyy HH:mm")
@@ -89,7 +89,7 @@
                                 </div>
                                 <h2 class="text-primary mb-2" style="font-weight: 700;">@Math.Round(Model.Weather.Temperature, 1)°C</h2>
                                 <p class="mb-1 fw-medium">@Model.Weather.Description</p>
-                                <small class="text-muted">Sensação térmica: @Math.Round(Model.Weather.FeelsLike, 1)°C</small>
+                                <small class="text-muted">Sensacao térmica: @Math.Round(Model.Weather.FeelsLike, 1)°C</small>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -116,7 +116,7 @@
                                     <div class="card border-0" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);">
                                         <div class="card-body text-center">
                                             <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌡️</div>
-                                            <h6 class="card-title">Pressão Atmosférica</h6>
+                                            <h6 class="card-title">Pressao Atmosférica</h6>
                                             <h4 class="mb-0" style="color: #c2185b;">@Model.Weather.Pressure hPa</h4>
                                         </div>
                                     </div>
@@ -141,13 +141,13 @@
 
 @if (Model.Country != null)
 {
-    <!-- Informações do País -->
+    <!-- Informacões do País -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">
-                        <span style="margin-right: 0.5rem;">🏛️</span>Informações do País
+                        <span style="margin-right: 0.5rem;">🏛️</span>Informacões do País
                     </h5>
                 </div>
                 <div class="card-body">
@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="p-3 rounded" style="background-color: var(--surface-variant);">
-                                        <strong class="text-primary">🌍 Região:</strong><br>
+                                        <strong class="text-primary">🌍 Regiao:</strong><br>
                                         <span class="fs-5">@Model.Country.Region</span>
                                     </div>
                                 </div>
@@ -205,13 +205,13 @@
     </div>
 }
 
-<!-- Informações da Cidade Favorita -->
+<!-- Informacões da Cidade Favorita -->
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">
-                    <span style="margin-right: 0.5rem;">⭐</span>Informações dos Favoritos
+                    <span style="margin-right: 0.5rem;">⭐</span>Informacões dos Favoritos
                 </h5>
             </div>
             <div class="card-body">
@@ -220,7 +220,7 @@
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="p-3 rounded" style="background-color: var(--surface-variant);">
-                                    <strong class="text-primary">🆔 ID da Localização:</strong><br>
+                                    <strong class="text-primary">🆔 ID da Localizacao:</strong><br>
                                     <code class="fs-6">@Model.FavoriteCity.LocationId</code>
                                 </div>
                             </div>

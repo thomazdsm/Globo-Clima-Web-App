@@ -100,7 +100,7 @@ namespace GloboClima.WebApp.Controllers
                     }
                     catch
                     {
-                        // Se não conseguir ler o JWT, continua com os claims básicos
+                        // Se nao conseguir ler o JWT, continua com os claims básicos
                     }
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -120,7 +120,7 @@ namespace GloboClima.WebApp.Controllers
                 }
                 else
                 {
-                    // Login sem token (apenas confirmação)
+                    // Login sem token (apenas confirmacao)
                     TempData["SuccessMessage"] = result.Message;
                     return RedirectToAction("VerifyEmail", new { email = model.Email });
                 }

@@ -55,7 +55,7 @@
                             <input name="CityName"
                                    id="CityName"
                                    class="form-control"
-                                   placeholder="Ex: São Paulo, New York"
+                                   placeholder="Ex: Sao Paulo, New York"
                                    required />
                         </div>
                         <div class="col-md-4">
@@ -125,7 +125,7 @@
                                             <div class="text-center mb-3">
                                                 <h2 class="text-primary mb-1" style="font-weight: 700;">@Math.Round(cityViewModel.Weather.Temperature, 1)°C</h2>
                                                 <p class="text-muted mb-1">@cityViewModel.Weather.Description</p>
-                                                <small class="text-muted">Sensação: @Math.Round(cityViewModel.Weather.FeelsLike, 1)°C</small>
+                                                <small class="text-muted">Sensacao: @Math.Round(cityViewModel.Weather.FeelsLike, 1)°C</small>
                                             </div>
                                             <div class="row text-center g-2">
                                                 <div class="col-6">
@@ -183,7 +183,7 @@
     <script>
         let cityExists = false;
 
-        // Converter código do país para maiúsculo automaticamente
+        // Converter código do país para maiusculo automaticamente
         document.getElementById('CountryCode').addEventListener('input', function (e) {
             e.target.value = e.target.value.toUpperCase();
             resetCityCheck();
@@ -248,7 +248,7 @@
                     resultDiv.innerHTML = `
                                 <div class="alert alert-danger">
                                     <span style="margin-right: 0.5rem;">❌</span><strong>${data.message}</strong><br>
-                                    Verifique se o nome da cidade e código do país estão corretos.
+                                    Verifique se o nome da cidade e código do país estao corretos.
                                 </div>
                             `;
                     cityExists = false;
@@ -267,7 +267,7 @@
             }
         }
 
-        // Validação antes do submit
+        // Validacao antes do submit
         document.getElementById('addFavoriteForm').addEventListener('submit', function (e) {
             const countryCode = document.getElementById('CountryCode').value.trim();
             const cityName = document.getElementById('CityName').value.trim();

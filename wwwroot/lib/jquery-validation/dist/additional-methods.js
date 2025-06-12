@@ -983,10 +983,10 @@ $.validator.addMethod( "netmask", function( value, element ) {
 }, "Please enter a valid netmask." );
 
 /*
- * The NIE (Número de Identificación de Extranjero) is a Spanish tax identification number assigned by the Spanish
+ * The NIE (Numero de Identificación de Extranjero) is a Spanish tax identification number assigned by the Spanish
  * authorities to any foreigner.
  *
- * The NIE is the equivalent of a Spaniards Número de Identificación Fiscal (NIF) which serves as a fiscal
+ * The NIE is the equivalent of a Spaniards Numero de Identificación Fiscal (NIF) which serves as a fiscal
  * identification number. The CIF number (Certificado de Identificación Fiscal) is equivalent to the NIF, but applies to
  * companies rather than individuals. The NIE consists of an 'X' or 'Y' followed by 7 or 8 digits then another letter.
  */
@@ -1023,7 +1023,7 @@ $.validator.addMethod( "nieES", function( value, element ) {
 }, "Please specify a valid NIE number." );
 
 /*
- * The Número de Identificación Fiscal ( NIF ) is the way tax identification used in Spain for individuals
+ * The Numero de Identificación Fiscal ( NIF ) is the way tax identification used in Spain for individuals
  */
 $.validator.addMethod( "nifES", function( value, element ) {
 	"use strict";
@@ -1078,13 +1078,13 @@ $.validator.addMethod( "nipPL", function( value ) {
 
 /**
  * Created for project jquery-validation.
- * @Description Brazillian PIS or NIS number (Número de Identificação Social Pis ou Pasep) is the equivalent of a
+ * @Description Brazillian PIS or NIS number (Numero de Identificacao Social Pis ou Pasep) is the equivalent of a
  * Brazilian tax registration number NIS of PIS numbers have 11 digits in total: 10 numbers followed by 1 check numbers
  * that are being used for validation.
- * @copyright (c) 21/08/2018 13:14, Cleiton da Silva Mendonça
- * @author Cleiton da Silva Mendonça <cleiton.mendonca@gmail.com>
- * @link http://gitlab.com/csmendonca Gitlab of Cleiton da Silva Mendonça
- * @link http://github.com/csmendonca Github of Cleiton da Silva Mendonça
+ * @copyright (c) 21/08/2018 13:14, Cleiton da Silva Mendonca
+ * @author Cleiton da Silva Mendonca <cleiton.mendonca@gmail.com>
+ * @link http://gitlab.com/csmendonca Gitlab of Cleiton da Silva Mendonca
+ * @link http://github.com/csmendonca Github of Cleiton da Silva Mendonca
  */
 $.validator.addMethod( "nisBR", function( value ) {
 	var number;

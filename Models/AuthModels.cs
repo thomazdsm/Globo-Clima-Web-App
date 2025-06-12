@@ -20,8 +20,8 @@ namespace GloboClima.WebApp.Models
         [MaxLength(50, ErrorMessage = "Sobrenome deve ter no máximo 50 caracteres")]
         public string LastName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Confirmação de senha é obrigatória")]
-        [Compare("Password", ErrorMessage = "Senhas não coincidem")]
+        [Required(ErrorMessage = "Confirmacao de senha é obrigatória")]
+        [Compare("Password", ErrorMessage = "Senhas nao coincidem")]
         public string ConfirmPassword { get; set; } = string.Empty;
     }
 
@@ -43,7 +43,7 @@ namespace GloboClima.WebApp.Models
         [EmailAddress(ErrorMessage = "Formato de email inválido")]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Código de confirmação é obrigatório")]
+        [Required(ErrorMessage = "Código de confirmacao é obrigatório")]
         public string ConfirmationCode { get; set; } = string.Empty;
     }
 
@@ -56,7 +56,7 @@ namespace GloboClima.WebApp.Models
 
     public class RefreshTokenRequest
     {
-        [Required(ErrorMessage = "Token de atualização é obrigatório")]
+        [Required(ErrorMessage = "Token de atualizacao é obrigatório")]
         public string RefreshToken { get; set; } = string.Empty;
     }
 

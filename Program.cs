@@ -87,8 +87,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Add token validation middleware
-app.UseMiddleware<TokenValidationMiddleware>();
+app.UseMiddleware<TokenValidationMiddleware>(); // Add token validation middleware
 
 app.MapControllerRoute(
     name: "default",

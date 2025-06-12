@@ -38,7 +38,7 @@ namespace GloboClima.WebApp.Controllers
                         FavoriteCity = favorite
                     };
 
-                    // Buscar informações do clima (opcional, pode ser carregado sob demanda)
+                    // Buscar informacões do clima (opcional, pode ser carregado sob demanda)
                     if (!string.IsNullOrEmpty(favorite.CityName) && !string.IsNullOrEmpty(favorite.CountryCode))
                     {
                         cityViewModel.Weather = await _weatherService.GetWeatherByCityAsync(favorite.CityName, favorite.CountryCode);
@@ -97,7 +97,7 @@ namespace GloboClima.WebApp.Controllers
                 }
             }
 
-            // Debug: Log dos erros de validação
+            // Debug: Log dos erros de validacao
             if (!ModelState.IsValid)
             {
                 Console.WriteLine("=== Validation Errors ===");
@@ -115,7 +115,7 @@ namespace GloboClima.WebApp.Controllers
                     .Select(e => e.ErrorMessage)
                     .ToList();
 
-                TempData["ErrorMessage"] = "Erros de validação: " + string.Join("; ", errorMessages);
+                TempData["ErrorMessage"] = "Erros de validacao: " + string.Join("; ", errorMessages);
                 return RedirectToAction("Index");
             }
 
@@ -126,7 +126,7 @@ namespace GloboClima.WebApp.Controllers
 
                 if (!cityExists)
                 {
-                    TempData["ErrorMessage"] = $"A cidade '{model.CityName}' não foi encontrada no país '{model.CountryCode}'.";
+                    TempData["ErrorMessage"] = $"A cidade '{model.CityName}' nao foi encontrada no país '{model.CountryCode}'.";
                     return RedirectToAction("Index");
                 }
 
@@ -145,7 +145,7 @@ namespace GloboClima.WebApp.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception in AddFavorite: {ex.Message}");
-                TempData["ErrorMessage"] = "Erro ao processar solicitação: " + ex.Message;
+                TempData["ErrorMessage"] = "Erro ao processar solicitacao: " + ex.Message;
             }
 
             return RedirectToAction("Index");
@@ -167,7 +167,7 @@ namespace GloboClima.WebApp.Controllers
 
             if (string.IsNullOrEmpty(countryCode) || string.IsNullOrEmpty(cityName))
             {
-                TempData["ErrorMessage"] = "Dados não recebidos corretamente.";
+                TempData["ErrorMessage"] = "Dados nao recebidos corretamente.";
                 return RedirectToAction("Index");
             }
 
@@ -187,7 +187,7 @@ namespace GloboClima.WebApp.Controllers
         {
             if (string.IsNullOrEmpty(locationId))
             {
-                TempData["ErrorMessage"] = "ID da localização inválido.";
+                TempData["ErrorMessage"] = "ID da localizacao inválido.";
                 return RedirectToAction("Index");
             }
 
@@ -206,7 +206,7 @@ namespace GloboClima.WebApp.Controllers
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Erro ao processar solicitação: " + ex.Message;
+                TempData["ErrorMessage"] = "Erro ao processar solicitacao: " + ex.Message;
             }
 
             return RedirectToAction("Index");
@@ -265,7 +265,7 @@ namespace GloboClima.WebApp.Controllers
                 return Json(new
                 {
                     exists = exists,
-                    message = exists ? "Cidade encontrada!" : "Cidade não encontrada"
+                    message = exists ? "Cidade encontrada!" : "Cidade nao encontrada"
                 });
             }
             catch (Exception ex)

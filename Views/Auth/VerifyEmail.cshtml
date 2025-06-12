@@ -17,7 +17,7 @@
                         <span style="font-size: 1.5rem; margin-right: 0.75rem;">📬</span>
                         <div>
                             <strong>Verifique seu email!</strong><br>
-                            Enviamos um código de verificação para <strong>@Model.Email</strong>.
+                            Enviamos um código de verificacao para <strong>@Model.Email</strong>.
                             Digite o código abaixo para confirmar sua conta.
                         </div>
                     </div>
@@ -30,7 +30,7 @@
 
                     <div class="mb-4">
                         <label asp-for="ConfirmationCode" class="form-label">
-                            <span style="margin-right: 0.25rem;">🔢</span>Código de Verificação
+                            <span style="margin-right: 0.25rem;">🔢</span>Código de Verificacao
                         </label>
                         <input asp-for="ConfirmationCode" class="form-control text-center"
                                style="font-size: 1.5rem; letter-spacing: 0.5rem; font-weight: 600;"
@@ -46,7 +46,7 @@
                 </form>
 
                 <div class="text-center">
-                    <p class="text-muted mb-2">Não recebeu o código?</p>
+                    <p class="text-muted mb-2">Nao recebeu o código?</p>
                     <button type="button" class="btn btn-outline-secondary" onclick="resendVerification()">
                         <span style="margin-right: 0.5rem;">🔄</span>Reenviar Código
                     </button>
@@ -79,7 +79,7 @@
                     }
                 })
                 .catch(error => {
-                    alert('❌ Erro na comunicação com o servidor');
+                    alert('❌ Erro na comunicacao com o servidor');
                 });
         }
     </script>
