@@ -24,7 +24,7 @@ namespace GloboClima.WebApp.Services
         {
             try
             {
-                var url = $"/api/Weather/city/{Uri.EscapeDataString(cityName)}";
+                var url = $"prod/api/Weather/city/{Uri.EscapeDataString(cityName)}";
                 if (!string.IsNullOrEmpty(countryCode))
                 {
                     url += $"?countryCode={Uri.EscapeDataString(countryCode)}";
@@ -60,7 +60,7 @@ namespace GloboClima.WebApp.Services
                 var json = JsonConvert.SerializeObject(request);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await _httpClient.PostAsync("/api/Weather/coordinates", content);
+                var response = await _httpClient.PostAsync("prod/api/Weather/coordinates", content);
 
                 if (response.IsSuccessStatusCode)
                 {

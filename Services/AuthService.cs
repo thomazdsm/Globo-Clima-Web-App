@@ -35,7 +35,7 @@ namespace GloboClima.WebApp.Services
             });
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/Auth/register", content);
+            var response = await _httpClient.PostAsync("prod/api/Auth/register", content);
 
             return await ProcessResponse(response);
         }
@@ -49,7 +49,7 @@ namespace GloboClima.WebApp.Services
             });
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/Auth/login", content);
+            var response = await _httpClient.PostAsync("prod/api/Auth/login", content);
 
             return await ProcessResponse(response);
         }
@@ -63,7 +63,7 @@ namespace GloboClima.WebApp.Services
             });
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/Auth/verify-email", content);
+            var response = await _httpClient.PostAsync("prod/api/Auth/verify-email", content);
 
             return await ProcessResponse(response);
         }
@@ -76,7 +76,7 @@ namespace GloboClima.WebApp.Services
             });
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/Auth/resend-verification", content);
+            var response = await _httpClient.PostAsync("prod/api/Auth/resend-verification", content);
 
             return await ProcessResponse(response);
         }
@@ -89,7 +89,7 @@ namespace GloboClima.WebApp.Services
             });
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/Auth/refresh", content);
+            var response = await _httpClient.PostAsync("prod/api/Auth/refresh", content);
 
             return await ProcessResponse(response);
         }

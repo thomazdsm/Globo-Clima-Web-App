@@ -29,7 +29,7 @@ namespace GloboClima.WebApp.Services
                 var json = JsonConvert.SerializeObject(request);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await _httpClient.PostAsync("/api/FavoriteCities", content);
+                var response = await _httpClient.PostAsync("prod/api/FavoriteCities", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -49,7 +49,7 @@ namespace GloboClima.WebApp.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync("/api/FavoriteCities");
+                var response = await _httpClient.GetAsync("prod/api/FavoriteCities");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -69,7 +69,7 @@ namespace GloboClima.WebApp.Services
         {
             try
             {
-                var response = await _httpClient.DeleteAsync($"/api/FavoriteCities/{Uri.EscapeDataString(locationId)}");
+                var response = await _httpClient.DeleteAsync($"prod/api/FavoriteCities/{Uri.EscapeDataString(locationId)}");
                 return response.IsSuccessStatusCode;
             }
             catch (Exception ex)
@@ -83,7 +83,7 @@ namespace GloboClima.WebApp.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync($"/api/FavoriteCities/check/{Uri.EscapeDataString(locationId)}");
+                var response = await _httpClient.GetAsync($"prod/api/FavoriteCities/check/{Uri.EscapeDataString(locationId)}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -103,7 +103,7 @@ namespace GloboClima.WebApp.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync($"/api/FavoriteCities/country/{Uri.EscapeDataString(countryCode)}");
+                var response = await _httpClient.GetAsync($"prod/api/FavoriteCities/country/{Uri.EscapeDataString(countryCode)}");
 
                 if (response.IsSuccessStatusCode)
                 {

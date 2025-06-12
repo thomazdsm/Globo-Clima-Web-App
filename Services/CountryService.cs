@@ -24,7 +24,7 @@ namespace GloboClima.WebApp.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync("/api/Country");
+                var response = await _httpClient.GetAsync("prod/api/Country");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -44,7 +44,7 @@ namespace GloboClima.WebApp.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync($"/api/Country/{Uri.EscapeDataString(countryName)}");
+                var response = await _httpClient.GetAsync($"prod/api/Country/{Uri.EscapeDataString(countryName)}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -64,7 +64,7 @@ namespace GloboClima.WebApp.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync($"/api/Country/search/{Uri.EscapeDataString(searchTerm)}");
+                var response = await _httpClient.GetAsync($"prod/api/Country/search/{Uri.EscapeDataString(searchTerm)}");
 
                 if (response.IsSuccessStatusCode)
                 {
